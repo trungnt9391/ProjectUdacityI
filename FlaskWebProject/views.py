@@ -62,19 +62,20 @@ def post(id):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        logging.info('Successful login for user: {}'.format(form.username.data))
         return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
-            logging.warning('Unsuccessful login attempt for user:- {}'.format(form.username.data))
+            
+            app.logger.warning('Unsuccessful login attempt for user: {}'.format(form.username.data))
             return redirect(url_for('login'))
+        flash('Valid username or password')
+        app.logger.info('Valid admin login attempt for user: {}'.format(form.username.data))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
-            
             next_page = url_for('home')
             
         return redirect(next_page)
