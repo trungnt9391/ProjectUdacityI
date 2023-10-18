@@ -6,7 +6,7 @@ class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret-key'
 
     BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'blobstorage9891'
-    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'HQYd/t76Bg+uul9j/tywhjofHZIjYKbbKnFxrRpt8sItGvuLD3guarhMSrVT0J83YXWMeqYdcQDu+AStppvXQw=='
+    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'C0N8WGEjTK/jfILostVYGgWI4WSH1FbhrY4Sv33x5JbDfJ57jGbfrV5YmFtx+gwEx8R87YnK7sC/+AStPWQUoQ=='
     BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
 
     SQL_SERVER = os.environ.get('SQL_SERVER') or 'projectudactiyserver.database.windows.net'
